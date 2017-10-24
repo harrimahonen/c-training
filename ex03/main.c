@@ -18,27 +18,29 @@ int main(void)
 
     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
     UART_1_Start();
-    
+
     float ticketPrice;
     float cash;
     float sum;
-    
-    
+
+
     printf("Enter price of bus ticket: ");
-    scanf("%f", &ticketPrice);
-    
+    scanf("%4f", &ticketPrice);
+
     printf("How much money do you have? ");
     scanf("%f", &cash);
-    
+
     sum = cash - ticketPrice;
-    
+
     if ( ticketPrice <= cash ){
-        printf("You have enough money for a bus ticket.\n");
+        printf("\nYou have enough money for a bus ticket.\n");
         printf("You have %.2f euros left.\n", sum);
     } else if (ticketPrice > cash){
         printf("You do not have enough money for a bus ticket.\n");
         printf("You need %.2f euros more to buy a ticket.\n", -sum);
     }
+    return 0;
+
     for(;;)
     {
         /* Place your application code here. */

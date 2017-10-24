@@ -1,1 +1,1 @@
-"### Assignments for C course" 
+Assignments for C course

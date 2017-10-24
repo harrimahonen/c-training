@@ -19,25 +19,24 @@ int main(void)
     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
     UART_1_Start();
 
-    float sal = 1238.75;
-    float tax = 17.0;
-    float taxPay = sal / 100.0 * tax;
-    float use = sal-taxPay;
-    float raise = 150.0;
+    int dd = 25;
+    int mm = 12;
+    int yy = 1990;
+    int _dd = 24;
+    int _mm = 10;
+    int _yy = 2017;
+    int diff;
 
-    printf("My salary is %.2f \n", sal);
-    printf("My tax percentage is %.2f percent. \n", tax);
-    printf("I have to pay %.2f euros tax.\n", taxPay);
-    printf("I have %.2f euros to spend or save.\n", use);
-    printf("My boss raises my salary by %.0f euros.\n", raise);
-    sal = sal+raise;
-    taxPay = sal / 100.0 * tax;
-    use = sal-taxPay;
-    printf("My new salary is %.2f euros.\n", sal);
-    printf("After taxes I have %.2f euros. \n", use);
-
+    if (_mm >= mm) {
+        diff = _yy - yy;
+    }
+    if (_mm < mm){
+        diff = _yy - yy - 1;
+    }
+    printf("I was born on %d.%d.%d\n"
+                   "Today is %d.%d.%d\n"
+                   "I am %d years old.\n", dd,mm,yy,_dd,_mm,_yy, diff);
     return 0;
-
     for(;;)
     {
         /* Place your application code here. */
@@ -46,19 +45,19 @@ int main(void)
 int _write(int file, char *ptr, int len)
 {
     (void)file; /* Parameter is not used, suppress unused argument warning */
-	int n;
-	for(n = 0; n < len; n++) {
+    int n;
+    for(n = 0; n < len; n++) {
         if(*ptr == '\n') UART_1_PutChar('\r');
-		UART_1_PutChar(*ptr++);
-	}
-	return len;
+        UART_1_PutChar(*ptr++);
+    }
+    return len;
 }
 
 int _read (int file, char *ptr, int count)
 {
     int chs = 0;
     char ch;
- 
+
     (void)file; /* Parameter is not used, suppress unused argument warning */
     while(count > 0) {
         ch = UART_1_GetChar();
