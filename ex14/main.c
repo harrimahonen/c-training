@@ -1,24 +1,29 @@
 #include "stdio.h"
 
-int mult(int *a, int *b){
-    while ( *a < 10 || *a > 20) {
-        printf("Enter a number [10 - 20]: ");
-        scanf("%d", a);
+int range(int a, int b){
+    int i = -1;
+    int max;
+    int min;
+    if ( a > b ){
+        max = a;
+        min = b;
+    } else if (a < b){
+        max = b;
+        min = a;
     }
 
-    while ( *b < 0 || *b > 5) {
-        printf("Enter a number [0 - 5]: ");
-        scanf("%d", b);
+    while (i < min || i > max) {
+        printf("Enter a number [%d - %d]: ", min, max);
+        scanf("%d", &i);
     }
-
-    return *a * *b;
+    return i;
 }
 
 int main()
 {
-    int a = 0;
-    int b = -1;
-    int c = mult(&a, &b);
+    int a = range(10, 20);
+    int b = range(0, 5);
+    int c = b * a;
 
     printf("%d is multiplied by %d is %d", b, a, c);
 

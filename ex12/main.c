@@ -1,7 +1,7 @@
 #include "stdio.h"
 
 float exchangeRate(int a, int b){
-    return ((float)a / 100) * ((float)b / 100);
+    return (float)a / (float)b;
 }
 
 int main()

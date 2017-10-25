@@ -36,6 +36,6 @@ int main()
         h -= 24;
     }
 
-    printf("If you go to bed now you must wake up at %d:%d", h, m);
+    printf("If you go to bed now you must wake up at %2d:%02d", h, m);
 
 };
