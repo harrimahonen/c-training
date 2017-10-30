@@ -15,12 +15,12 @@ int main()
     scanf("%d.%d.%d" ,&d, &m, &y);
 
     if (m < 13 && m > 0 && d < 32 && d > 0 ) {
+
+        // month length < input
         if (d > monthLength[m-1]) {
             invalid();
         }
-        if (m > 12) {
-            invalid();
-        }
+
         _d = d;
         _m = m;
         _y = y;
